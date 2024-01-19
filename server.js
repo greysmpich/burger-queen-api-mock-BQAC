@@ -1,10 +1,20 @@
 const fs = require('fs');
+const cors = require('cors');
 const path = require('path');
 const jsonServer = require('json-server');
 const auth = require('json-server-auth');
 const middlewares = jsonServer.defaults()
 
 const app = jsonServer.create();
+
+const corsOptions = {
+    origin: ['http://localhost:4200', 'https://burguer-queen-api-client-35jn.vercel.app'],// Reemplaza con el dominio de tu aplicación cliente
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Habilita el envío de cookies
+    optionsSuccessStatus: 204,
+  };
+
+app.use(cors(corsOptions));
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 
 const port = process.env.PORT || 8080;
