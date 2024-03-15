@@ -8,7 +8,7 @@ const middlewares = jsonServer.defaults()
 const app = jsonServer.create();
 
 const corsOptions = {
-    origin: ['http://localhost:4200', 'https://burguer-queen-api-client-35jn.vercel.app'],// Reemplaza con el dominio de tu aplicación cliente
+    origin: ['http://localhost:4200', 'https://bqac-greysmpich.vercel.app/'],// Reemplaza con el dominio de tu aplicación cliente
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Habilita el envío de cookies
     optionsSuccessStatus: 204,
