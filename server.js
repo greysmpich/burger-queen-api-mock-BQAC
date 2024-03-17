@@ -8,18 +8,13 @@ const middlewares = jsonServer.defaults()
 const app = jsonServer.create();
 
 const corsOptions = {
-    origin: ['http://localhost:4200', 'https://bqac-greysmpich.vercel.app/'],// Reemplaza con el dominio de tu aplicación cliente
+    origin: ['*'],// Reemplaza con el dominio de tu aplicación cliente
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Habilita el envío de cookies
     optionsSuccessStatus: 204,
   };
 
-app.use(cors(corsOptions)).use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+app.use(cors(corsOptions));
 
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 
