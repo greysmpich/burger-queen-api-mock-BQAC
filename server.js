@@ -11,11 +11,12 @@ const app = jsonServer.create();
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
   res.setHeader('Access-Control-Allow-Origin', 'https://bqac-greysmpich.vercel.app/');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, HEAD, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
+
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 
 const port = process.env.PORT || 8080;
